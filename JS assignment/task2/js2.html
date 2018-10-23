@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>
+        Login form
+    </title>
+    <style>
+
+        div{
+            border-radius: 15px;
+            padding: 25px 2px 15px 5px;
+            background: rgba(0, 0, 0, 0.2);
+            
+            margin: 140px 0px 0px 420px;
+            width: 500px
+        }
+       
+        textarea,input{
+            border-radius: 15px;
+            padding: 10px;
+            background-image: url("input.jpg");
+        
+        }
+        h2{
+            margin: 40px;
+            text-align: center;
+        }
+        body{
+            background-image: url("login.png");
+        }
+        </style>
+
+</head>
+
+<body>
+    <marquee direction=right>
+        <h2 id="print" style="color: white"></h2>
+    </marquee>
+
+    <div align="center">
+        <img src="user.png" width="350px" height="100px" style="border-radius: 50%"><br /><br />
+
+        <strong>write:</strong><br /><br />
+        <textarea rows="5" cols="50" id="text" placeholder="write your senetence...."></textarea><br /><br />
+        <input type="button" id="button" value="check" style="width: 320px" onclick="panag()">&emsp;&emsp;
+    </div>
+    <script>
+        function panag() {
+            let str = document.getElementById("text").value.toLowerCase();
+            let c = 0;
+            for (let i = 0; i < 26; i++) {
+                for (let j = 0; j < str.length; j++) {
+                    if (String.fromCharCode(i + 97) == str.charAt(j)) {
+                        c++;
+                        break;
+                    }
+                }
+            }
+            console.log(c);
+            if (c == 26) {
+                document.getElementById("print").innerHTML = "its a panagram statement";
+            }
+            else {
+                document.getElementById("print").innerHTML = "its not a panagram statement";
+            }
+        }
+    </script>
+</body>
+
+</html>
