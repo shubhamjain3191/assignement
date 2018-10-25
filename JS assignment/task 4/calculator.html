@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <title>
+        Calculator
+    </title>
+    <style>
+
+        div{
+            border-radius: 15px;
+            padding: 25px 2px 15px 5px;
+            background: rgba(0, 0, 0, 0.2);
+            
+            margin: 50px 0px 0px 420px;
+            width: 500px
+        }
+       
+        textarea,input{
+            border-radius: 15px;
+            padding: 10px;
+            background-image: url("input.jpg");
+            font: 15px;
+            font-weight: bold;
+        
+        }
+       
+        body{
+            background-image: url("login.png");
+        }
+        </style>
+
+</head>
+
+<body>
+
+    <div align="center">
+        <h2 style="color: white;">Calculator</h2><br />
+
+        <textarea rows="4" cols="40" id="text" placeholder="Enter no."></textarea><br /><br />
+
+        <input type="button" id="cal" value="(" style="width: 80px"  onclick="input()"/>
+        <input type="button" id="cal" value=")" style="width: 80px" onclick="input(this.value)"/>
+        <input type="button" id="cal" value="%" style="width: 80px" onclick="input(this.value)"/>
+        <input type="button" id="cal" value="AC" style="width: 80px" onclick="input(this.value)"/><br /><br />
+        <input type="button" id="cal" value="7" style="width: 80px" onclick="input(this.value)"/>
+        <input type="button" id="cal" value="8" style="width: 80px" onclick="input(this.value)"/>
+        <input type="button" id="cal" value="9" style="width: 80px" onclick="input(this.value)"/>
+        <input type="button" id="cal" value="/" style="width: 80px" onclick="input(this.value)"/><br /><br v/>
+        <input type="button" id="cal" value="4" style="width: 80px" onclick="input(this.value)"/>
+        <input type="button" id="cal" value="5" style="width: 80px" onclick="input(this.value)"/>
+        <input type="button" id="cal" value="6" style="width: 80px" onclick="input(this.value)"/>
+        <input type="button" id="cal" value="*" style="width: 80px" onclick="input(this.value)"/><br /><br />
+        <input type="button" id="cal" value="1" style="width: 80px" onclick="input(this.value)"/>
+        <input type="button" id="cal" value="2" style="width: 80px" onclick="input(this.value)"/>
+        <input type="button" id="cal" value="3" style="width: 80px" onclick="input(this.value)"/>
+        <input type="button" id="cal" value="-" style="width: 80px" onclick="input(this.value)"/><br /><br />
+        <input type="button" id="cal" value="0" style="width: 80px" onclick="input(this.value)"/>
+        <input type="button" id="cal" value="." style="width: 80px" onclick="input(this.value)"/>
+        <input type="button" id="cal" value="=" style="width: 80px" onclick="output(this.value)"/>
+        <input type="button" id="cal" value="+" style="width: 80px" onclick="input(this.value)"/><br /><br />
+    </div>
+
+    <script>
+        function input(x){
+            if(x=="AC"){
+                document.getElementById("text").innerHTML="";
+            }
+            else{
+                document.getElementById("text").innerHTML+=x;
+            }
+            
+        }
+
+        function output(){
+            let res;
+            res=eval(document.getElementById("text").value);
+            document.getElementById("text").innerHTML=document.getElementById("text").value+"= "+res;
+        }
+        
+        
+    </script>
+</body>
+
+</html>
