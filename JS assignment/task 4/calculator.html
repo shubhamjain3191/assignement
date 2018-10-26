@@ -38,46 +38,60 @@
 
         <textarea rows="4" cols="40" id="text" placeholder="Enter no."></textarea><br /><br />
 
-        <input type="button" id="cal" value="(" style="width: 80px"  onclick="input()"/>
-        <input type="button" id="cal" value=")" style="width: 80px" onclick="input(this.value)"/>
-        <input type="button" id="cal" value="%" style="width: 80px" onclick="input(this.value)"/>
-        <input type="button" id="cal" value="AC" style="width: 80px" onclick="input(this.value)"/><br /><br />
-        <input type="button" id="cal" value="7" style="width: 80px" onclick="input(this.value)"/>
-        <input type="button" id="cal" value="8" style="width: 80px" onclick="input(this.value)"/>
-        <input type="button" id="cal" value="9" style="width: 80px" onclick="input(this.value)"/>
-        <input type="button" id="cal" value="/" style="width: 80px" onclick="input(this.value)"/><br /><br v/>
-        <input type="button" id="cal" value="4" style="width: 80px" onclick="input(this.value)"/>
-        <input type="button" id="cal" value="5" style="width: 80px" onclick="input(this.value)"/>
-        <input type="button" id="cal" value="6" style="width: 80px" onclick="input(this.value)"/>
-        <input type="button" id="cal" value="*" style="width: 80px" onclick="input(this.value)"/><br /><br />
-        <input type="button" id="cal" value="1" style="width: 80px" onclick="input(this.value)"/>
-        <input type="button" id="cal" value="2" style="width: 80px" onclick="input(this.value)"/>
-        <input type="button" id="cal" value="3" style="width: 80px" onclick="input(this.value)"/>
-        <input type="button" id="cal" value="-" style="width: 80px" onclick="input(this.value)"/><br /><br />
-        <input type="button" id="cal" value="0" style="width: 80px" onclick="input(this.value)"/>
-        <input type="button" id="cal" value="." style="width: 80px" onclick="input(this.value)"/>
-        <input type="button" id="cal" value="=" style="width: 80px" onclick="output(this.value)"/>
-        <input type="button" id="cal" value="+" style="width: 80px" onclick="input(this.value)"/><br /><br />
+        <input type="button" id="cal" value="(" style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value=")" style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value="%" style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value="AC" style="width: 80px" onclick="input(this.value)" /><br /><br />
+        <input type="button" id="cal" value="7" style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value="8" style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value="9" style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value="/" style="width: 80px" onclick="input(this.value)" /><br /><br v />
+        <input type="button" id="cal" value="4" style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value="5" style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value="6" style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value="*" style="width: 80px" onclick="input(this.value)" /><br /><br />
+        <input type="button" id="cal" value="1" style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value="2" style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value="3" style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value="-" style="width: 80px" onclick="input(this.value)" /><br /><br />
+        <input type="button" id="cal" value="0" style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value="." style="width: 80px" onclick="input(this.value)" />
+        <input type="button" id="cal" value="=" style="width: 80px" onclick="output(this.value)" />
+        <input type="button" id="cal" value="+" style="width: 80px" onclick="input(this.value)" /><br /><br />
     </div>
 
     <script>
-        function input(x){
-            if(x=="AC"){
-                document.getElementById("text").innerHTML="";
+        let c = 0;
+        function input(x) {
+            if (x == "AC") {
+                document.getElementById("text").innerHTML = "";
+                c = 0;
             }
-            else{
-                document.getElementById("text").innerHTML+=x;
+            else {
+                document.getElementById("text").innerHTML += x;
             }
-            
+
         }
 
-        function output(){
+        function output() {
             let res;
-            res=eval(document.getElementById("text").value);
-            document.getElementById("text").innerHTML=document.getElementById("text").value+"= "+res;
+            if (c == 0) {
+                res = eval(document.getElementById("text").value);
+                document.getElementById("text").innerHTML = document.getElementById("text").value + "= " + res;
+                c++;
+            }
+            else {
+
+                res = eval(document.getElementById("text").value.split("=")[c]);
+                document.getElementById("text").innerHTML = document.getElementById("text").value + "= " + res;
+                c++;
+
+            }
+
+
         }
-        
-        
+
+
     </script>
 </body>
 
