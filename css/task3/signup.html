@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <title>
+        Login form
+    </title>
+    <style>
+       
+        div{
+            border-radius: 15px;
+            padding: 25px 2px 15px 5px;
+            background: rgba(0, 0, 0, 0.2);
+            
+            margin: 140px 0px 0px 420px;
+            width: 500px
+        }
+        @media screen and (max-width: 500px)
+        {
+            div{
+            padding: 10px 1px 8px 1px;
+            margin: 100px 5px 0px 5px;
+            width: 100%
+        }
+        input{
+            width: "100%";
+        }
+        strong{
+            width: "100%";
+            float: left;
+            padding:0px 0px 8px 3px;
+        }
+        }
+       
+        input{
+            border-radius: 15px;
+            padding: 10px;
+            background-image: url("input.jpg")
+        
+        }
+        body{
+            background-image: url("login.png");
+            background-repeat: no-repeat;
+        }
+        </style>
+</head>
+
+<body>
+    <div align="center">
+        <img src="user.png" width="100px" height="100px"><br /><br />
+        <form>
+
+            <strong>Name:</strong>&emsp;&emsp; &emsp;&emsp;&emsp;<input type="text" name="name" placeholder="user name" /><br /><br />
+            <strong>Email:</strong>&emsp;&emsp;&emsp; &emsp;&emsp;<input type="email" name="email" placeholder="email id" /><br /><br />
+            <strong>Password:</strong>&emsp;&emsp;&emsp;&emsp;<input type="password" name="password" placeholder="password" /><br /><br />
+            <strong>Re-type password:</strong>&emsp;<input type="text" name="name" placeholder="re-type password" /><br /><br />
+            <input type="checkbox" name="remember" /><span> <b>Remember me</b></span><br /><br />
+            <input type="button" name="signup" value="sign up">&emsp;&emsp;
+            <input type="button" name="signin" value="sign in">
+
+        </form>
+
+
+    </div>
+</body>
+
+</html>
