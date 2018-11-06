@@ -1,0 +1,28 @@
+
+
+.page:first-child,.page{
+background:#007bff;
+
+color: #fff;
+border-top-left-radius: .30rem;
+border-bottom-left-radius: .30rem;
+padding: .65rem 1.2rem;
+border: 0.5px solid #dee2e6;
+}
+.page:last-child{
+background:#007bff;
+
+color: #fff;
+border-top-right-radius: .25rem;
+border-bottom-right-radius: .25rem;
+padding: .65rem 1.2rem;
+border: 0.5px solid #dee2e6;
+}
+.page:hover {
+z-index: 2;
+color: #0056b3;
+text-decoration: none;
+background-color: #c3d7ec;
+border-color: #616264;
+}
+
