@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <title>
+        Current Time
+    </title>
+</head>
+<style>
+    .box{
+        background: black;
+        color: white;
+        width: 20%;
+        height: 30%;
+        border-radius: 50%;
+        margin-top:2px;
+    }
+    .parent{
+        position: relative;
+        top:10;
+        left:200;
+    }
+
+    #del {
+        position: relative;
+        top:10;
+        left:40;
+    }
+
+    #u {
+        position: relative;
+        top:10;
+        left:250;
+    }
+
+    #cal {
+        position: relative;
+        top:10;
+        left:500;
+    }
+
+    span {
+        padding-top: 20px;
+        padding-left:80px;
+        font-size: 25px;
+        display: inline-block;
+    }
+
+    label {
+        color: aqua;
+        font-size: 50px;
+        display: inline-block;
+        padding-top: 40px;
+        padding-left:40px;
+    }
+
+    body {
+        background: rgb(126, 207, 207, 0.7);
+    }
+</style>
+
+<body>
+    <div class="parent">
+        <div id="del" class="box">
+            <span>Delhi:</span> <br />
+            <label id="delhi"></label>
+        </div>
+        <div id="u" class="box">
+            <span>UK: </span> <br />
+            <label id="uk"></label>
+        </div>
+        <div id="cal" class="box">
+            <span>California:</span> <br />
+            <label id="California"></label>
+        </div>
+    </div>
+    <script>
+        function time2() {
+            let x = time('-8');
+            document.getElementById("California").innerHTML = x;
+            let y = time('+5.5');
+            document.getElementById("delhi").innerHTML = y;
+            let z = time('0');
+            document.getElementById("uk").innerHTML = z;
+            setTimeout(time2, 1000);
+        }
+        function time(offset) {
+            let date = new Date();
+            let localtime = date.getTime();
+            let utc = localtime + (date.getTimezoneOffset() * 60000);
+            let newtime = new Date(utc + (offset * 3600000));
+            return newtime.getHours() + ":" + newtime.getMinutes() + ":" + newtime.getSeconds();
+        }
+        time2();
+
+    </script>
+</body>
+
+</html>
