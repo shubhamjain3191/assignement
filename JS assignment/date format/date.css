@@ -1,0 +1,36 @@
+#input{
+    position: absolute;
+    left: 450px;
+    top: 100px;
+    background: rgb(196, 164, 106);
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+}
+#label{
+    position: absolute;
+    left: 450px;
+    top: 350px;
+    background: rgb(194, 193, 191);
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+}
+input{
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 100px;
+}
+label{
+    display: inline-block;
+    margin-top: 70px;
+    margin-left: 120px;
+    font-size: 40px;
+
+}
+span{
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 145px;
+    font-size: 25px;
+}

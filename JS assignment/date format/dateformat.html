@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>
+        Date Formatting
+    </title>
+    <link rel="stylesheet" type="text/css" href="date.css">
+</head>
+
+<body>
+  
+    <div id="input">
+            <span>Date :</span><br /><br />
+        <input type="date" placeholder="M/D/YYYY" id="date" onchange="validate()"><br /><br />
+    </div>
+   
+    <div id="label">
+        <label id="format_date"></label>
+    </div>
+</body>
+<script>
+    function validate() {
+        let d = new Date(document.getElementById("date").value);
+        let pattern = /^[0-9]{4}$/;
+        if (pattern.test(d.getFullYear().toString())) {
+
+            document.getElementById("format_date").innerHTML = d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate();
+
+            document.getElementById("format_date").style.color = "blue";
+        }
+        else {
+            document.getElementById("format_date").innerHTML = "Please enter correct date";
+            document.getElementById("format_date").style.color = "red";
+        }
+
+    }
+
+</script>
+
+</html>
