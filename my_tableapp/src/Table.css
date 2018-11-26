@@ -1,0 +1,20 @@
+.table{
+  border: 1px solid;
+  width: 100%;
+  border-collapse: collapse;
+  background: rgb(230, 198, 198);
+}
+.table th{
+  border-bottom: 2px solid;
+  padding: 8px 10px;
+}
+.table td{
+  border-bottom: 1px solid;
+  padding: 5px ;
+  border: 1px solid;
+  text-align: left;
+  
+}
+#right{
+  text-align: right;
+}

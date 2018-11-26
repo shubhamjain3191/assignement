@@ -1,0 +1,28 @@
+body {
+  background: rgb(126, 207, 207, 0.7);
+}
+
+#parent{
+  position: relative;
+  top:15px;
+  left:200px;
+}
+
+#first {
+  position: relative;
+  top:50px;
+  left:40px;
+}
+
+#second {
+  position: relative;
+  top:10px;
+  left:290px;
+}
+
+#third {
+  position: relative;
+  top:10px;
+  left:500px;
+}
+
