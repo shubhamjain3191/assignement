@@ -1,28 +1,52 @@
 import React from 'react'
-import data from "../data"
 import Popup from "../Popup"
-import { BrowserRouter as Router,Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 class States extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isshow: true
+        }
+    }
+    
+    open = () => {
+        this.setState({ isshow: true });
+    }
+    close = () => {
+        this.setState({ isshow: false });
+    }
+    countrydata(states, countrydetails, props) {
+        const { stateid } = props.match.params;
+        let filteredstate = states.filter((value) => value.name === stateid)
+        let newcountrydetails={...countrydetails};
+        newcountrydetails.states = filteredstate[0];
+        let statedata = newcountrydetails;
+        let time=new Date();
+        console.log(time)
+        return <Popup statedetails={statedata} isPopupOpen={this.state.isshow} close={this.close} {...props} />
+    }
+    createstatesLinks = (states, match) => {
+        return (states.map((object) =>
+            <li>
+                <Link to={`${match.url}/${object.name}`} onClick={this.open}> {object.name}</Link>
+            </li>
+        )
+        )
+    }
     render() {
-        const { match } = this.props;
+        const { countrydetails, match } = this.props;
+        const { states } = this.props.countrydetails;
         return (
             <Router>
-                <div style={{float: 'left', display : 'inline-block'}}>
+                <div>
                     <h2>States :</h2>
-                    <ul>{
-                        data.map((value) =>
-
-                            (value.name === match.params.countid ?
-                                value.states.map((count) =>
-                                    <li>
-                                        <Link to={`/${count.name}`}> {count.name}</Link>
-                                    </li>
-                                )
-                                : "")
-                        )
-                    }
+                    <ul>
+                        {this.createstatesLinks(states, match)}
                     </ul>
-                    <Route path="/:stateid" exact component={Popup} />
+                    <Route path={`${match.path}/:stateid`} exact render={props =>
+                        // this.state.isshow && 
+                        this.countrydata(states, countrydetails, { ...props })
+                    } />
                 </div>
             </Router>
         )

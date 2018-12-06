@@ -1,29 +1,43 @@
 import React from 'react'
-import Country from './pages/Country';
-import data from "./data"
+import Continent from './pages/Continent';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class MyRoute extends React.Component {
+
+    continentdata(Alldata, props) {
+        const { continentid } = props.match.params;
+        let continentdata = Alldata.filter((value) => value.region === continentid)
+        return <Continent continentdetails={continentdata}  {...props} />
+    }
+    createcontinentlinks = (Alldata) => {
+        let continentlist = new Set(Alldata.map((value) => value.region));
+        continentlist = [...continentlist]
+        return (
+            continentlist.map((value) =>
+                <li>
+                    <Link to={`/${value}`}> {value}</Link>
+                </li>
+            )
+        )
+    }
     render() {
-        let continents=new Set(data.map((value)=>value.region));
-        continents=[...continents]
+        let { Alldata } = this.props;
         return (
             <Router>
-                <div style={{float: 'left',display : 'inline-block'}}>
+                <div>
                     <h2>Continents:</h2>
-                    <ul>{
-                        continents.map((value) =>
-                            <li>
-                                <Link to={`/${value}`}> {value}</Link>
-                            </li>
-                        )
-                    }
+                    <ul>
+                        {this.createcontinentlinks(Alldata)}
                     </ul>
-                    <Route path="/:continentid" exact component={Country} />
+                    <Route path="/:continentid" exact render={props =>
+                        this.continentdata(Alldata, { ...props })
+                    }
+                    />
                 </div>
             </Router>
 
         )
     }
+
 }
 export default MyRoute;
