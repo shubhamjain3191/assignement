@@ -10,11 +10,11 @@ class MyRoute extends React.Component {
         return <Continent continentdetails={continentdata}  {...props} />
     }
     createcontinentlinks = (Alldata) => {
-        let continentlist = new Set(Alldata.map((value) => value.region));
+        let continentlist = new Set(Alldata.map((value) => value.region ? value.region : value.region = "Other"));
         continentlist = [...continentlist]
         return (
             continentlist.map((value) =>
-                <li>
+                <li key={value}>
                     <Link to={`/${value}`}> {value}</Link>
                 </li>
             )
@@ -24,16 +24,16 @@ class MyRoute extends React.Component {
         let { Alldata } = this.props;
         return (
             <Router>
-                <div>
-                    <h2>Continents:</h2>
-                    <ul>
+                <>
+                    <ul className="cssStyling" style={{ background: 'rgba(212, 145, 57, 0.705)' }}>
+                        <h2>Continents:</h2>
                         {this.createcontinentlinks(Alldata)}
                     </ul>
-                    <Route path="/:continentid" exact render={props =>
+                    <Route path="/:continentid" render={props =>
                         this.continentdata(Alldata, { ...props })
                     }
                     />
-                </div>
+                </>
             </Router>
 
         )

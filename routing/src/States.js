@@ -2,26 +2,22 @@ import React from 'react'
 import Modal from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 
-class Popup extends React.Component {
+class Statedetails extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isPopupOpen: true
+            isPopupOpen: this.props.isPopupOpen
         }
     }
-     componentDidUpdate(prevProps) {
-        console.log("hello derive-----------")
+    componentDidUpdate(prevProps) {
         if (this.props.statedetails !== prevProps.statedetails) {
             this.setState({ isPopupOpen: !this.state.isPopupOpen })
         }
-
     }
     render() {
-        console.log("hello Popup")
-        const { statedetails, isPopupOpen } = this.props;
-        console.log("ishow---", isPopupOpen)
+        const { statedetails } = this.props;
         return (
-            this.props.isPopupOpen && <div className="static-modal">
+            this.state.isPopupOpen && <div className="static-modal">
                 <Modal.Dialog>
                     <Modal.Header>
                         <Modal.Title>Details</Modal.Title>
@@ -51,9 +47,8 @@ class Popup extends React.Component {
                     </Modal.Footer>
                 </Modal.Dialog>
             </div>
-
         )
     }
 }
 
-export default Popup;
+export default Statedetails;
